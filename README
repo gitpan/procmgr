@@ -1,0 +1,67 @@
+procmgr.pl - a process view/kill utility
+
+Procmgr is a simple gui based utility to allow a user to interactively select from a list 
+of running processes and have the processes killed.    The need for this utility came
+about when I was working in an environment where everyone was using an X emulator from
+their PC's.  If any network hiccups occurred, many of the X emulator processes would
+hang on the server.  The users would re-connect, and go on, not realizing that a hung
+process bearing their name was created on the server.   Since I was supporting the 
+sysadmin group, I whipped up this utility so they we could easily clean up the server. 
+
+When the app is started, the currently running processes are listed in the top pane.
+The user can double-click on a process entry and have that entry added to the "kill
+list" below.  Once all of the target processes are selected, the user can click on the
+"Nuke it"  button to have the processes killed" .  If the user accidentally selects 
+a wrong process, he can double-click on the process in the kill window to have it removed
+from the list of killable processes.
+
+procmgr.pl uses
+
+Perl/TK8
+ 
+Tk::SplitFrame from $CPAN/authors/id/D/DK/DKWILSON/Tk-DKW-0.01.tar.gz
+This is a great package containing a lot of really nice widgets.  I highly recommend
+getting this package anyway...
+
+
+
+Buttons:
+
+Nuke it! - Executes the kill process.
+
+Proc Info - The user can also highlight a process, and press "Proc Info" to have more 
+   information displayed about the highlighted process (ala finger).
+
+Select By - The user can highlight a process, and pick a select method from the "select by" menu to 
+   have all of the processes that have the same parameter as the selected method.  For example,
+   if a process is highlighted that has a login of "monty", the user can select "Login" from the
+   "Select By" menu to have all of the processes with the login parameter of "monty" selected and
+   added to the kill list.
+
+Add Multi - The user can select and drag multiple lines, then right-click or click on "Add Multi" to have
+   all of the selected processes added to the kill list.
+
+Filter - Allows the user to narrow down the display based on display filters.
+
+Clear Kills - Clears the kill proc list.
+
+Cancel - exits the app.
+
+The column headers are actually buttons that when pressed, sorts the display on the selected 
+column.  These header buttons can also be used to refresh the process list.
+
+
+Procmgr can be fetched via CPAN:
+   $CPAN/authors/id/M/MS/MSCROGGIN
+
+or my homepage - 
+   http://www.flash.net/~monty4
+
+
+Thats it
+
+Any comments/suggestions would be welcome.
+
+Monty Scroggins
+
+Monty4@flash.net
